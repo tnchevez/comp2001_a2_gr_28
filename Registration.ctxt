@@ -5,19 +5,19 @@ comment1.target=Registration(java.lang.String,\ int,\ int,\ java.lang.String,\ j
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Registration\r\n
 comment10.params=
 comment10.target=void\ printInfo()
-comment10.text=\r\n\ Method\ that\ prints\ the\ information\ about\ the\ object.\r\n
+comment10.text=\r\n\ \ \ \ \ \ \ \ Method\ prints\ all\ information\ about\ Registration\ object.\r\n
 comment2.params=courseNumber
 comment2.target=boolean\ verifyCourseNumber(java.lang.String)
-comment2.text=\r\n\ Method\ that\ verifies\ if\ the\ course\ number\ is\ in\ the\ list\ of\ acceptable\ numbers.\r\n
+comment2.text=\r\n\ \ \ \ \ \ \ \ Method\ verifies\ courseNumber\ string\ is\ in\ list\ of\ allowed\ values\r\n
 comment3.params=section
 comment3.target=boolean\ verifySection(int)
-comment3.text=\r\n\ Method\ that\ verifies\ if\ the\ section\ is\ within\ the\ range\ of\ 0\ to\ 2.\r\n
+comment3.text=\r\n\ \ \ \ \ \ \ \ Method\ verifies\ section\ itn\ is\ in\ the\ range\ (0\ <\=\ x\ <\=\ 2)\r\n\ \ \ \ \ \ \ \ returns\ true\ if\ in\ range\ and\ false\ if\ not\r\n
 comment4.params=slot
 comment4.target=boolean\ verifySlot(int)
-comment4.text=\r\n\ Method\ that\ verifies\ if\ the\ time\ slot\ is\ within\ the\ range\ of\ 12\ to\ 25.\r\n
+comment4.text=\r\n\ \ \ \ \ \ \ \ Method\ verifies\ slot\ int\ is\ in\ the\ range\ (12\ <\=\ x\ <\=\ 25)\r\n\ \ \ \ \ \ \ \ returns\ true\ if\ in\ range\ and\ false\ if\ not\r\n
 comment5.params=
 comment5.target=java.lang.String\ getCourseNumber()
-comment5.text=\r\n\ Assesor\ methods\ for\ variables\ courseNumber,\ section,\ timeSlot,\ student\ and\ professor.\r\n
+comment5.text=\r\n\ \ \ \ \ \ \ \ Accessor\ Methods\ that\ return\ courseNumber,\ section,\ timeSlot,\ student,\ and\ professor\r\n
 comment6.params=
 comment6.target=int\ getSection()
 comment7.params=

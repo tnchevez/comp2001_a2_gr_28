@@ -22,86 +22,98 @@ public class Registration
     public Registration(String courseNum, int courseSection, int slot, 
                       String courseStudent,String courseProfessor)
     {
-        if (verifyCourseNumber(courseNum)){
-    
+        if (verifyCourseNumber(courseNum)) {
+
             courseNumber = courseNum;
+        } else {
+            throw new IllegalArgumentException(
+                    "Course Number must be either of the following: COMP 1501, ENGL 2201, CHEM 3060, PHYS 2344, ENGL 2005, COMP 2704, PHYS 2377, CHEM 4927 and COMP 3444");
         }
-        else{ 
-            throw new IllegalArgumentException("Course Number must be either of the following: COMP 1501, ENGL 2201, CHEM 3060, PHYS 2344, ENGL 2005, COMP 2704, PHYS 2377, CHEM 4927 and COMP 3444");
-        }
-        if (verifySection(courseSection)){
+        if (verifySection(courseSection)) {
             section = courseSection;
-        }
-        else{ 
+        } else {
             throw new IllegalArgumentException("Section must be between 0 and 2");
         }
-        if (verifySlot (slot)){
+        if (verifySlot(slot)) {
             timeSlot = slot;
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Slot must be between 12 and 25");
         }
         student = courseStudent;
         professor = courseProfessor;
     }
-    /**
-     * Method that verifies if the course number is in the list of acceptable numbers.
-     */
+
+    /*
+        Method verifies courseNumber string is in list of allowed values
+    */
     private boolean verifyCourseNumber(String courseNumber)
     {
-        String[] number ={"COMP 1501", "ENGL 2201", "CHEM 3060", "PHYS 2344", "ENGL 2005", "COMP 2704", "PHYS 2377", "CHEM 4927","COMP 3444"};
-        boolean contains = Arrays.stream(number).anyMatch(courseNumber::equals);
-        if(!contains){
-            return false;
-        }
-        
-        return true;
-        
+        ArrayList<String> CRN_List = new ArrayList<String>();
+
+        CRN_List.add("COMP 1501");
+        CRN_List.add("ENGL 2201");
+        CRN_List.add("CHEM 3060");
+        CRN_List.add("PHYS 2344");
+        CRN_List.add("ENGL 2005");
+        CRN_List.add("COMP 2704");
+        CRN_List.add("PHYS 2377");
+        CRN_List.add("CHEM 4927");
+        CRN_List.add("COMP 3444");
+
+        return CRN_List.contains(courseNumber);
     }
-    /**
-     * Method that verifies if the section is within the range of 0 to 2.
-     */
+    
+    /*
+        Method verifies section itn is in the range (0 <= x <= 2)
+        returns true if in range and false if not
+    */
     private boolean verifySection(int section)
     {
-        if (section < 0 || section > 2){
-            return false;  
-        }
-        return true;
+        return (section >= 0 && section <= 2);
     }
-    /**
-     * Method that verifies if the time slot is within the range of 12 to 25.
-     */
+
+    /*
+        Method verifies slot int is in the range (12 <= x <= 25)
+        returns true if in range and false if not
+    */
     private boolean verifySlot (int slot)
     {
-        if (slot < 12 || slot > 25){
-            return false;  
-        }
-        return true;
+        return (slot >= 12 && slot <= 25);
     }
-    /**
-     * Assesor methods for variables courseNumber, section, timeSlot, student and professor.
-     */
-    public String getCourseNumber(){
+
+    /*
+        Accessor Methods that return courseNumber, section, timeSlot, student, and professor
+    */
+    public String getCourseNumber()
+    {
         return this.courseNumber;
     }
-    public int getSection(){
+    
+    public int getSection()
+    {
         return this.section;
     }
-    public int getTimeSlot(){
+    public int getTimeSlot()
+    {
         return this.timeSlot;
     }
-    public String getStudent(){
+
+    public String getStudent()
+    {
         return this.student;
     }
-    public String getProfessor(){
+
+    public String getProfessor()
+    {
         return this.professor;
     }
-    /**
-     * Method that prints the information about the object.
-     */
-   public void printInfo()
-   {
-       System.out.printf("\n--------\nCourse Number: %s\nSection: %d\nTime Slot: %d\nProfessor: %s\nStudent: %s",getCourseNumber(),getSection(),getTimeSlot(),getProfessor(),getStudent());
-   }
+    
+    /*
+        Method prints all information about Registration object.
+    */
+    public void printInfo()
+    {  
+       System.out.printf("\n--------\nStudent: %s\nCourse Number: %s\nSection: %d\nTime Slot: %d\nProfessor: %s",getStudent(), getCourseNumber(), getSection(), getTimeSlot(), getProfessor());
+    }
     
 }
