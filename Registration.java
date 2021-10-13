@@ -1,6 +1,6 @@
 
 /**
- * 
+ * Registration class saves the information about each registration, including the course number, section, time slot, student and professor.
  *
  * @author (Tannia Chevez)
  * @version (Oct 12,2021)
@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 public class Registration
 {
-    // instance variables - replace the example below with your own
     private String courseNumber;
     private int section;
     private int timeSlot;
@@ -45,7 +44,9 @@ public class Registration
         student = courseStudent;
         professor = courseProfessor;
     }
-    
+    /**
+     * Method that verifies if the course number is in the list of acceptable numbers.
+     */
     private boolean verifyCourseNumber(String courseNumber)
     {
         String[] number ={"COMP 1501", "ENGL 2201", "CHEM 3060", "PHYS 2344", "ENGL 2005", "COMP 2704", "PHYS 2377", "CHEM 4927","COMP 3444"};
@@ -57,7 +58,9 @@ public class Registration
         return true;
         
     }
-    
+    /**
+     * Method that verifies if the section is within the range of 0 to 2.
+     */
     private boolean verifySection(int section)
     {
         if (section < 0 || section > 2){
@@ -65,7 +68,9 @@ public class Registration
         }
         return true;
     }
-    
+    /**
+     * Method that verifies if the time slot is within the range of 12 to 25.
+     */
     private boolean verifySlot (int slot)
     {
         if (slot < 12 || slot > 25){
@@ -73,6 +78,9 @@ public class Registration
         }
         return true;
     }
+    /**
+     * Assesor methods for variables courseNumber, section, timeSlot, student and professor.
+     */
     public String getCourseNumber(){
         return this.courseNumber;
     }
@@ -88,7 +96,9 @@ public class Registration
     public String getProfessor(){
         return this.professor;
     }
-    
+    /**
+     * Method that prints the information about the object.
+     */
    public void printInfo()
    {
        System.out.printf("\n--------\nCourse Number: %s\nSection: %d\nTime Slot: %d\nProfessor: %s\nStudent: %s",getCourseNumber(),getSection(),getTimeSlot(),getProfessor(),getStudent());
