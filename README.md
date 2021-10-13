@@ -4,3 +4,6 @@ Tannia Chevez: Creator of Repository
 
 
 Nicholas Farrell: 
+
+
+Kyle Dalton (10): First 5 methods in the CollegeRegistrar class.
