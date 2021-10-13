@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Registration
+comment1.params=courseNum\ courseSection\ slot\ courseStudent\ courseProfessor
+comment1.target=Registration(java.lang.String,\ int,\ int,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Registration\r\n
+comment10.params=
+comment10.target=void\ printInfo()
+comment2.params=courseNumber
+comment2.target=boolean\ verifyCourseNumber(java.lang.String)
+comment3.params=section
+comment3.target=boolean\ verifySection(int)
+comment4.params=slot
+comment4.target=boolean\ verifySlot(int)
+comment5.params=
+comment5.target=java.lang.String\ getCourseNumber()
+comment6.params=
+comment6.target=int\ getSection()
+comment7.params=
+comment7.target=int\ getTimeSlot()
+comment8.params=
+comment8.target=java.lang.String\ getStudent()
+comment9.params=
+comment9.target=java.lang.String\ getProfessor()
+numComments=11
