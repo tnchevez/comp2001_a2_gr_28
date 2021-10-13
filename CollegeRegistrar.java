@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class CollegeRegistrar
 {
-    private ArrayList<Registration> registration = new ArrayList<Registration>();
+    private ArrayList<Registration> registration;
     private static Random rand = new Random();
 
     /**
@@ -18,7 +18,7 @@ public class CollegeRegistrar
     
     public CollegeRegistrar()
     {
-        
+        registration = new ArrayList<>();
     }
     /*
      * Method that adds a new class registration to the registrations arraylist
@@ -26,16 +26,13 @@ public class CollegeRegistrar
     public void addRegistration(Registration newRegistration)
     {
         registration.add(newRegistration);
-        
     }
     /**
      * Method that prints the information about all the class registrations, including course nummber, section, time slot, student and professor, taking the information from the registration object.
      */
     public void printAllRegistrations()
     {
-        registration.forEach(
-            record -> record.printInfo()
-        );
+        registration.forEach(course -> course.printInfo());
         
     }
     /**
@@ -44,8 +41,8 @@ public class CollegeRegistrar
     public void printClassesForStudent(String student)
     {
         registration.stream()
-            .filter(record -> student.equals(record.getStudent()))
-            .forEach(record -> System.out.printf("\nCourse Number: %s Professor: %s",record.getCourseNumber(),record.getProfessor()));
+            .filter(course -> course.getStudent().equals(student))
+            .forEach(course -> System.out.println("\nCourse Number: " + course.getCourseNumber() + " Professor: " + course.getProfessor())); 
 
     }
     /**
@@ -53,14 +50,9 @@ public class CollegeRegistrar
      */
     public int getClassCountForStudent(String student)
     {
-        long classesCount = registration
-            .stream()
-            .filter(record -> student.equals(record.getStudent()))
+        return (int) registration.stream()
+            .filter(course -> course.getStudent().equals(student))
             .count();
-        if (classesCount > 0){
-            return (int)classesCount;
-        }
-        return 0;
     }
     /**
      * Method that prints the information of the classes that are registered by the student given as parameter with the professor given as the parameter.
@@ -68,8 +60,8 @@ public class CollegeRegistrar
     public void printClassesForStudentByProfessor(String student, String professor)
     {
         registration.stream()
-            .filter(record -> student.equals(record.getStudent()) && professor.equals(record.getProfessor()))
-            .forEach(record -> System.out.printf("\nCourse Number: %s Section: %s",record.getCourseNumber(),record.getSection()));
+            .filter(course -> course.getStudent().equals(student) && course.getProfessor().equals(professor))
+            .forEach(course -> System.out.println("\nCourse Number: " + course.getCourseNumber() + " Section: " + course.getSection()));
     }
     /**
      * Method that prints the course number and section of the classes registered by the student given as parameter and the specififc time slot. 
@@ -77,8 +69,8 @@ public class CollegeRegistrar
     public void printClassesForStudentInSlot(String student, int timeSlot)
     {
         registration.stream()
-            .filter(record -> student.equals(record.getStudent()) && timeSlot==record.getTimeSlot())
-            .forEach(record -> System.out.printf("\nCourse Number: %s Section: %s",record.getCourseNumber(),record.getSection()));
+            .filter(course -> course.getStudent().equals(student) && course.getTimeSlot() == timeSlot)
+            .forEach(course -> System.out.println("\nCourse Number: " + course.getCourseNumber() + " Section: " + course.getSection()));
 
     }
     /**
